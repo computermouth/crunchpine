@@ -7,4 +7,4 @@ sh mkimage.sh \
  --arch x86_64 \
  --repository http://dl-cdn.alpinelinux.org/alpine/v3.14/main/ \
  --repository http://dl-cdn.alpinelinux.org/alpine/v3.14/community/ \
- --profile extended
+ --profile crunchpine
