@@ -6,6 +6,9 @@ RUN apk add alpine-sdk build-base apk-tools alpine-conf busybox fakeroot syslinu
 # efi tools
 RUN apk add mtools dosfstools grub-efi
 
+# chroot
+RUN apk add coreutils
+
 RUN adduser --uid 1000 -S build -G abuild \
  && echo "%abuild ALL=(ALL) NOPASSWD: ALL" > /etc/sudoers.d/abuild \
  && mkdir /build
