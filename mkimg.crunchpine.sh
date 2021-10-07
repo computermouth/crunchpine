@@ -11,6 +11,7 @@ profile_crunchpine() {
           ttf-liberation
           lxdm
           xorg-server
+          mesa-egl
           mesa-dri-gallium
           xf86-video-modesetting
           xf86-input-evdev

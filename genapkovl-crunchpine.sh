@@ -80,6 +80,7 @@ sudo
 ttf-liberation
 lxdm
 xorg-server
+mesa-egl
 mesa-dri-gallium
 xf86-video-modesetting
 xf86-input-evdev
@@ -141,15 +142,17 @@ EOF
 rc_rem mdev sysinit
 rc_rem hwdrivers sysinit
 
+rc_add dbus sysinit
+rc_add networking sysinit
+rc_add crond sysinit
+rc_add acpid sysinit
+
 rc_add udev sysinit
 rc_add udev-postmount sysinit
 rc_add udev-trigger sysinit
 rc_add udev-settle sysinit
+
 rc_add lxdm default
-rc_add dbus default
-rc_add networking default
-rc_add crond default
-rc_add acpid default
 
 ## crunchpines user
 mkdir -p "$tmp"/etc/init.d
