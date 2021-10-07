@@ -80,6 +80,7 @@ sudo
 ttf-liberation
 lxdm
 xorg-server
+mesa-dri-gallium
 xf86-video-modesetting
 xf86-input-evdev
 xf86-input-synaptics
@@ -89,6 +90,51 @@ xterm
 openbox
 tint2
 conky
+xscreensaver
+geany
+terminator
+thunar
+breeze-icons
+calamares
+calamares-mod-luksopenswaphookcfg
+calamares-mod-locale
+calamares-mod-keyboard
+calamares-mod-localeq
+calamares-mod-packagechooser
+calamares-mod-fsresizer
+calamares-mod-plymouthcfg
+calamares-mod-welcomeq
+calamares-mod-shellprocess
+calamares-mod-netinstall
+calamares-mod-umount
+calamares-mod-grubcfg
+calamares-mod-keyboardq
+calamares-mod-users
+calamares-mod-webview
+calamares-mod-interactiveterminal
+calamares-mod-rawfs
+calamares-mod-notesqml
+calamares-mod-finished
+calamares-mod-networkcfg
+calamares-mod-oemid
+calamares-mod-fstab
+calamares-mod-packages
+calamares-mod-preservefiles
+calamares-mod-mount
+calamares-mod-welcome
+calamares-mod-hostinfo
+calamares-mod-hwclock
+calamares-mod-summary
+calamares-mod-bootloader
+calamares-mod-partition
+calamares-mod-machineid
+calamares-mod-displaymanager
+calamares-mod-luksbootkeyfile
+calamares-mod-mkinitfs
+calamares-mod-removeuser
+calamares-mod-services-openrc
+calamares-mod-plasmalnf
+calamares-mod-unpackfs
 EOF
 
 # fontconfig
@@ -131,5 +177,9 @@ makefile root:root 0644 "$tmp"/etc/skel/.config/openbox/autostart <<EOF
 tint2 &
 conky -q &
 EOF
+
+## bulk file copy in
+MAGICDIR=/home/build/aports/scripts/mnt
+cp -r "$MAGICDIR"/conf/* "$tmp"/
 
 tar -c -C "$tmp" etc | gzip -9n > $HOSTNAME.apkovl.tar.gz
