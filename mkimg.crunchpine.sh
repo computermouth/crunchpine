@@ -6,16 +6,19 @@ profile_crunchpine() {
 	desc="Desktop alpine with openbox"
 	apkovl="genapkovl-crunchpine.sh"
 	apks="$apks
+          dbus
+          sudo
+          ttf-liberation
           lxdm
-          openbox
           xorg-server
           xf86-video-modesetting
           xf86-input-evdev
           xf86-input-synaptics
           xf86-input-libinput
           xinit
-          udev
-          dbus
-          xfce4
+          xterm
+          openbox
+          tint2
+          conky
 	      "
 }
