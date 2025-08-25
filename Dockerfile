@@ -1,4 +1,4 @@
-FROM alpine:3.14
+FROM alpine:3.19
 
 # core tools
 RUN apk add alpine-sdk build-base apk-tools alpine-conf busybox fakeroot syslinux xorriso squashfs-tools sudo git
@@ -18,7 +18,7 @@ WORKDIR /home/build
 
 RUN ln -s aports/scripts/mnt/keys   .abuild
 
-RUN git clone --depth 1 --branch 3.14-stable https://gitlab.alpinelinux.org/alpine/aports.git
+RUN git clone --depth 1 --branch 3.19-stable https://gitlab.alpinelinux.org/alpine/aports.git
 
 WORKDIR /home/build/aports/scripts
 

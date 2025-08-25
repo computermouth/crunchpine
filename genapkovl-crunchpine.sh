@@ -70,8 +70,8 @@ rc_add savecache shutdown
 
 ## start crunchpines system
 makefile root:root 0644 "$tmp"/etc/apk/repositories <<EOF
-https://dl-cdn.alpinelinux.org/alpine/v3.14/main
-https://dl-cdn.alpinelinux.org/alpine/v3.14/community
+https://dl-cdn.alpinelinux.org/alpine/v3.19/main
+https://dl-cdn.alpinelinux.org/alpine/v3.19/community
 EOF
 
 cat << EOF >> "$tmp"/etc/apk/world
@@ -95,7 +95,7 @@ xscreensaver
 geany
 terminator
 thunar
-breeze-icons
+adwaita-icon-theme
 calamares
 calamares-mod-luksopenswaphookcfg
 calamares-mod-locale
@@ -163,7 +163,6 @@ depend(){}
 start(){
 	echo -e "live\nlive\n" | adduser live
 	adduser live wheel
-	sed -i 's|# %wheel ALL=(ALL) ALL|%wheel ALL=(ALL) ALL|g'                   /etc/sudoers
 	sed -i 's|# autologin=dgod|autologin=live|g'                               /etc/lxdm/lxdm.conf
 	sed -i 's|# session=/usr/bin/startlxde|session=/usr/bin/openbox-session|g' /etc/lxdm/lxdm.conf
 	rc-update del crunchpine-user-setup
@@ -171,6 +170,11 @@ start(){
 }
 
 stop(){}
+EOF
+
+mkdir -p "$tmp"/etc/sudoers.d
+makefile root:root 0440 "$tmp"/etc/sudoers.d/10-wheel <<EOF
+%wheel ALL=(ALL) ALL
 EOF
 
 rc_add crunchpine-user-setup sysinit

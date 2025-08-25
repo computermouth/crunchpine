@@ -26,7 +26,7 @@ profile_crunchpine() {
           geany
           terminator
           thunar
-          breeze-icons
+          adwaita-icon-theme
           calamares
           calamares-mod-luksopenswaphookcfg
           calamares-mod-locale
